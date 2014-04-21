@@ -1,11 +1,14 @@
 package pl.msulima.guesser.domain;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import pl.msulima.guesser.model.AnswerHint;
 import pl.msulima.guesser.model.Question;
 import pl.msulima.guesser.repository.QuestionsRepository;
 
 import java.util.Random;
 
+@Service
 public class QuestionsService {
 
     private final Random random = new Random();
@@ -34,6 +37,7 @@ public class QuestionsService {
         return currentQuestion;
     }
 
+    @Autowired
     public void setQuestionsRepository(QuestionsRepository questionsRepository) {
         this.questionsRepository = questionsRepository;
     }
