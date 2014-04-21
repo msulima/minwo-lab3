@@ -1,4 +1,4 @@
 rootProject.name = 'lab3'
 
-include 'front'
+include 'front', 'backend'
 

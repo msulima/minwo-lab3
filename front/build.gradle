@@ -25,6 +25,7 @@ repositories {
 }
 
 dependencies {
+    compile project(':backend')
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.thymeleaf:thymeleaf-spring3:2.1.2.RELEASE'
     compile group: 'com.h2database', name: 'h2', version: '1.3.175'
