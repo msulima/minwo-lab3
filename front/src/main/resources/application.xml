@@ -13,7 +13,7 @@
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="packagesToScan" value="hello"/>
+        <property name="packagesToScan" value="pl.msulima"/>
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
@@ -27,7 +27,7 @@
     </bean>
 
     <mvc:annotation-driven/>
-    <context:component-scan base-package="hello.**"/>
+    <context:component-scan base-package="pl.msulima.**"/>
 
     <bean id="viewResolver" class="org.thymeleaf.spring3.view.ThymeleafViewResolver">
         <property name="templateEngine" ref="templateEngine" />
