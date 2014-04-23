@@ -34,6 +34,12 @@ class QuestionsServiceTest extends FunSpec with ShouldMatchers {
       question should not be null
     }
 
+    it("should increate Question's attempts count") {
+      val attemptsCount = question.getAttemptsCount
+      questionService.compareWithCurrentQuestion(0)
+      question.getAttemptsCount should be(attemptsCount + 1)
+    }
+
     it("should return LESSER hint, if passed number is lesser than correct answer") {
       questionService.compareWithCurrentQuestion(answer - 1) should be(AnswerHint.LESSER)
     }

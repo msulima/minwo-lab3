@@ -2,6 +2,7 @@ package pl.msulima.guesser.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pl.msulima.guesser.model.AnswerHint;
 import pl.msulima.guesser.model.Question;
 import pl.msulima.guesser.repository.QuestionsRepository;
@@ -17,8 +18,11 @@ public class QuestionsService {
     @Autowired
     private QuestionsRepository questionsRepository;
 
+    @Transactional
     public AnswerHint compareWithCurrentQuestion(int answer) {
         Question currentQuestion = findCurrentQuestion();
+
+        currentQuestion.setAttemptsCount(currentQuestion.getAttemptsCount() + 1);
 
         int correctAnswer = currentQuestion.getAnswer();
         if (answer < correctAnswer) {
