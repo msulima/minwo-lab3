@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<h1>Zgadnij liczbę z przedziału od 0 do 99!</h1>
+<form action="/" method="POST">
+    <label for="answer">Odpowiedź</label>
+    <input id="answer" type="text" name="answer" th:value="${answer.answer}" />
+    <button type="submit">Wyślij</button>
+</form>
+</body>
+</html>
