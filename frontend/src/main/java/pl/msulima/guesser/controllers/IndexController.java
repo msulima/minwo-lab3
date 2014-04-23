@@ -23,7 +23,7 @@ public class IndexController {
     public ModelAndView index() {
         HashMap<String, Object> model = new HashMap<String, Object>();
         model.put("answer", new Answer());
-        model.put("previousQuestions", Lists.newArrayList(new Question(), new Question()));
+        model.put("previousQuestions", questionsService.getPreviousQuestions());
         return new ModelAndView("index", model);
     }
 
@@ -31,7 +31,7 @@ public class IndexController {
     public ModelAndView index(@ModelAttribute("answer") Answer answer) {
         HashMap<String, Object> model = new HashMap<String, Object>();
         model.put("answer", answer);
-        model.put("previousQuestions", Lists.newArrayList(new Question(), new Question()));
+        model.put("previousQuestions", questionsService.getPreviousQuestions());
         return new ModelAndView("index", model);
     }
 }

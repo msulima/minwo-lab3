@@ -21,6 +21,8 @@ class QuestionsServiceTest extends FunSpec with ShouldMatchers {
       question = q
       answer = q.getAnswer
     }
+
+    override def getPreviousQuestions = ???
   }
 
   val questionService = new QuestionsService

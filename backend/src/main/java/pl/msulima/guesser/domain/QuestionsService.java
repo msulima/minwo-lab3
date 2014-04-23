@@ -6,6 +6,7 @@ import pl.msulima.guesser.model.AnswerHint;
 import pl.msulima.guesser.model.Question;
 import pl.msulima.guesser.repository.QuestionsRepository;
 
+import java.util.List;
 import java.util.Random;
 
 @Service
@@ -13,6 +14,7 @@ public class QuestionsService {
 
     private final Random random = new Random();
 
+    @Autowired
     private QuestionsRepository questionsRepository;
 
     public AnswerHint compareWithCurrentQuestion(int answer) {
@@ -37,7 +39,10 @@ public class QuestionsService {
         return currentQuestion;
     }
 
-    @Autowired
+    public List<Question> getPreviousQuestions() {
+        return questionsRepository.getPreviousQuestions();
+    }
+
     public void setQuestionsRepository(QuestionsRepository questionsRepository) {
         this.questionsRepository = questionsRepository;
     }
