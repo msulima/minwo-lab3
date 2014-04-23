@@ -24,6 +24,7 @@ public class QuestionsService {
         if (answer < correctAnswer) {
             return AnswerHint.LESSER;
         } else if (answer == correctAnswer) {
+            generateNextQuestion();
             return AnswerHint.EQUAL;
         }
         return AnswerHint.GREATER;
@@ -32,10 +33,16 @@ public class QuestionsService {
     private Question findCurrentQuestion() {
         Question currentQuestion = questionsRepository.getCurrentQuestion();
         if (currentQuestion == null) {
-            currentQuestion = new Question();
-            currentQuestion.setAnswer(random.nextInt(100));
-            questionsRepository.setCurrentQuestion(currentQuestion);
+            currentQuestion = generateNextQuestion();
         }
+        return currentQuestion;
+    }
+
+    private Question generateNextQuestion() {
+        Question currentQuestion = new Question();
+        currentQuestion.setAnswer(random.nextInt(100));
+        questionsRepository.setCurrentQuestion(currentQuestion);
+
         return currentQuestion;
     }
 

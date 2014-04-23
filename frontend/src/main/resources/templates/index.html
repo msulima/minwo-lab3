@@ -13,6 +13,14 @@
     <button type="submit">Wyślij</button>
 </form>
 
+<div th:if="${answerHint}">
+    <p th:switch="${answerHint.toString()}">
+        <span th:case="LESSER">Podana liczba jest za mała.</span>
+        <span th:case="GREATER">Podana liczba jest za duża.</span>
+        <span th:case="EQUAL">Trafiłeś, gratulacje!</span>
+    </p>
+</div>
+
 <h1>Poprzednie odpowiedzi:</h1>
 <table>
     <thead>

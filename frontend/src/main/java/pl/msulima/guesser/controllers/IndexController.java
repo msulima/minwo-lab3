@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import pl.msulima.guesser.dao.Answer;
 import pl.msulima.guesser.domain.QuestionsService;
+import pl.msulima.guesser.model.AnswerHint;
 import pl.msulima.guesser.model.Question;
 
 import java.util.HashMap;
@@ -30,8 +31,11 @@ public class IndexController {
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public ModelAndView index(@ModelAttribute("answer") Answer answer) {
         HashMap<String, Object> model = new HashMap<String, Object>();
+
         model.put("answer", answer);
+        model.put("answerHint", questionsService.compareWithCurrentQuestion(answer.getAnswer()));
         model.put("previousQuestions", questionsService.getPreviousQuestions());
+
         return new ModelAndView("index", model);
     }
 }
