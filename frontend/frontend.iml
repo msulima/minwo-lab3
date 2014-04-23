@@ -47,6 +47,7 @@
     <orderEntry type="library" exported="" name="Gradle: thymeleaf-2.1.2.RELEASE" level="project" />
     <orderEntry type="library" exported="" name="Gradle: thymeleaf-spring3-2.1.2.RELEASE" level="project" />
     <orderEntry type="module" module-name="backend" exported="" />
+    <orderEntry type="library" exported="" name="Gradle: guava-16.0.1" level="project" />
   </component>
 </module>
 

@@ -6,10 +6,27 @@
 </head>
 <body>
 <h1>Zgadnij liczbę z przedziału od 0 do 99!</h1>
+
 <form action="/" method="POST">
     <label for="answer">Odpowiedź</label>
-    <input id="answer" type="text" name="answer" th:value="${answer.answer}" />
+    <input id="answer" type="text" name="answer" th:value="${answer.answer}"/>
     <button type="submit">Wyślij</button>
 </form>
+
+<h1>Poprzednie odpowiedzi:</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Odpowiedź</th>
+        <th>Liczba strzałów</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="question: ${previousQuestions}">
+        <td th:text="${question.answer}"></td>
+        <td th:text="${question.attemptsCount}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
