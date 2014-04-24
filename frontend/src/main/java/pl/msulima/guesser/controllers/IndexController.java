@@ -17,7 +17,6 @@ import java.util.HashMap;
 @Controller
 public class IndexController {
 
-    @Autowired
     private QuestionsService questionsService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -37,5 +36,10 @@ public class IndexController {
         model.put("previousQuestions", questionsService.getPreviousQuestions());
 
         return new ModelAndView("index", model);
+    }
+
+    @Autowired
+    public void setQuestionsService(QuestionsService questionsService) {
+        this.questionsService = questionsService;
     }
 }
