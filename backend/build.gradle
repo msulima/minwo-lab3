@@ -21,6 +21,5 @@ dependencies {
 
     compile group: 'org.hibernate', name: 'hibernate-core', version: hibernateVersion
     compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: hibernateVersion
-    testCompile 'junit:junit:4.11'
     testCompile 'org.scalatest:scalatest_2.10:2.1.3'
 }

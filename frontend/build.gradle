@@ -28,7 +28,6 @@ dependencies {
     compile project(':backend')
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.thymeleaf:thymeleaf-spring3:2.1.2.RELEASE'
-    testCompile("junit:junit")
 }
 
 task wrapper(type: Wrapper) {
